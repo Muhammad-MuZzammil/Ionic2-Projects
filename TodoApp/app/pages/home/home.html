@@ -1,0 +1,52 @@
+<ion-header primary>
+  <ion-navbar>
+    <ion-title>
+      Todo App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+
+
+
+  <ion-list>
+    
+    
+<ion-toolbar position="bottom">
+    <div class="item-note" item-left>
+        <ion-input style="width: 200px;" type="text" #task placeholder="Add Tasks">
+        </ion-input>
+    </div>
+    <ion-buttons end>
+        <button royal (click)="addTodo(task)">
+            Add
+            <ion-icon name="send"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+
+<!--<ion-toolbar >
+    <ion-item>
+      <ion-label floating>Add Tasks</ion-label>
+    <ion-input type="text" #task></ion-input>
+
+<ion-buttons  end>
+      <button  fab (click)="addTodo(task)"  > 
+  <ion-icon name="send">SEND</ion-icon>
+ </button>
+</ion-buttons>   
+ </ion-item>
+</ion-toolbar>-->
+
+    <ion-list *ngFor=" let todo of todoArr">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="img/1.jpg">
+        </ion-avatar>
+        <h2>{{todo}}</h2>
+      </ion-item>
+    </ion-list>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-navbar *navbar>
+
+    <ion-title>Sign Up</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+
+
+        <div style="margin-top:50%;">
+
+
+
+            <form [ngFormModel]="signUpForm" (submit)="submitForm()">
+
+
+
+
+
+    <ion-item>
+        <ion-label> Type</ion-label>
+        <ion-select  ngControl="selectedType">
+           <ion-label> Teacher</ion-label>
+            <ion-option value='Teacher'>Teacher</ion-option>
+            <ion-option value='Student'>Student</ion-option>
+            <ion-option value='Parent'>Parent</ion-option>
+            
+        </ion-select>
+    </ion-item>
+  
+
+                <ion-item>
+                    <ion-label fixed>Username</ion-label>
+                    <ion-input type="text" ngControl="name"></ion-input>
+                </ion-item>
+
+
+                <ion-item>
+                    <ion-label fixed>Email</ion-label>
+                    <ion-input type="text" ngControl="email" id="email" [ngClass]="{redColor: !email.valid}"></ion-input>
+                </ion-item>
+
+
+
+                <ion-item>
+                    <ion-label fixed>Password</ion-label>
+                    <ion-input type="password" ngControl="password"></ion-input>
+                </ion-item>
+
+
+                <ion-item>
+                    <ion-label fixed>Confirm Password</ion-label>
+                    <ion-input type="password" ngControl="confirmPass"></ion-input>
+                </ion-item>
+
+
+                <button primary block type="submit" [disabled]="!signUpForm.valid">Submit</button>
+
+
+
+
+            </form>
+        </div>
+   
+</ion-content>

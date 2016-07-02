@@ -1,0 +1,58 @@
+<ion-navbar *navbar>
+ 
+  <ion-title>Sign In</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="signIn">
+
+    
+    
+        <div style="margin-top:50%;">
+
+
+
+      <form [ngFormModel]="userForm" (submit)="signIn()">
+        
+        
+        <ion-item>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="text" ngControl="email" id="email" [ngClass]="{redColor: !email.valid}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Password</ion-label>
+          <ion-input type="password" ngControl="password"></ion-input>
+        </ion-item>
+
+
+
+        <button primary block type="submit" [disabled]="!userForm.valid">Sign In</button>
+
+
+        <!--<button primary block (click)="signIn(email,password);">Sign In</button>-->
+        <div padding style="margin-top:55%; margin-left:25%; font-size:large;">
+          <a (click)="signUp()">Register Yourself</a>
+        </div>
+
+      </form>
+
+    
+
+
+
+    <!--<button primary block (click)="signUp();">Sign Up</button>-->
+    <!--<label for="password">Password</label>
+  <input ngControl="password" id="pass" />-->
+    <!--<control-messages control="pass"></control-messages>-->
+
+    <!--<label  for="email">Email -  </label>
+  <ion-input type="text"  ngControl="email" id="email" [ngClass]="{redColor: !email.valid}" placeholder="email id"></ion-input>-->
+    <!--<input ngControl="email" id="email" [ngClass]="{redColor: !email.valid}" />-->
+    <!--<control-messages control="email"></control-messages>-->
+
+
+  
+</div>
+
+</ion-content>

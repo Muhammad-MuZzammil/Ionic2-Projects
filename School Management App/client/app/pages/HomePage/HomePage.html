@@ -1,0 +1,70 @@
+
+<ion-navbar *navbar>
+  <!--<button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+  <ion-title>Approvals</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+<div>
+  
+  
+   <div *ngFor="#gu of getAllUser">
+        <ion-card style="width: 105%;">
+            
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="img/_blank.jpg">
+                </ion-thumbnail>
+                <h2 style="overflow: initial; white-space: initial; font-size:150%; margin-top: 2%;">{{gu.email}}</h2>
+               
+                    <h6 style="overflow: initial; white-space: initial;margin-top: 5%;"><em>{{gu.name}} as <strong>{{gu.selectedType}}</strong></em></h6>
+                <div style="float:right;" >
+                
+                <button clear item-right dark (click)="rightOption(gu._id)">
+                    <ion-icon name="md-checkmark-circle" clear item-right style="font-size: 225%; color: green;"></ion-icon>
+                </button>
+                <button clear item-right dark  (click)="wrongOption(gu._id)">
+                    <ion-icon name="md-close-circle" clear item-right style="font-size: 225%; color: red;"></ion-icon>
+                </button>
+              
+                </div>
+                </ion-item>
+        </ion-card>
+    </div>
+  
+<!--
+  <div  >
+       
+        <ion-card  *ngFor="#gu of getAllUser">
+           
+           <img src="img/_blank.jpg">
+            <h1>  {{ gu.email}}</h1>
+                  <br>
+                <p>{{gu.name}}  As a {{ gu.selectedType}}</p>
+                  <br>
+           
+            <ion-item >
+                 
+                 
+              
+                <ion-avatar item-left  >
+                
+                
+                
+                </ion-avatar>
+                
+            </ion-item>
+        </ion-card>
+       
+   </div>-->
+
+
+
+
+</div>
+  
+
+</ion-content>

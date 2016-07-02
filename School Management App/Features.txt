@@ -1,0 +1,15 @@
+School Management App
+Results, Manage Attendance, Fees,Complain
+1)SignIn/SignOut
+2)For Teacher:
+i)Add Students
+ii)Assignement Assign
+iii)Manage Students Result
+iv)Manage Attendance
+v)Student Complain.
+
+
+3)For Parents:
+i)Take/show Result.
+ii)Manage Fees (ONLINE)
+

@@ -1,0 +1,104 @@
+<ion-navbar *navbar>
+  <!--<button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+  <ion-title> Add Class </ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Class Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Select Subjects</ion-label>
+      <ion-select [(ngModel)]="subjects" [disabled]="subbool" multiple="true" cancelText="CANCEL" okText="OK" (change)="selectSub($event,subjects)">
+        <ion-option value="English">English</ion-option>
+        <ion-option value="Maths">Maths</ion-option>
+        <ion-option value="Urdu">Urdu</ion-option>
+        <ion-option value="PST">PST</ion-option>
+        <ion-option value="Drawing">Drawing</ion-option>
+        <ion-option value="Science">Science</ion-option>
+        <ion-option value="Computer">Computer</ion-option>
+        <ion-option value="Islamiat">Islamiat</ion-option>
+        <ion-option value="Others">Others</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <!--<ion-item  #other>
+      <ion-label stacked>Other Subjects</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>-->
+    
+    <ion-toolbar *ngIf="show" position="bottom">
+    <div class="item-note" item-left>
+        <ion-input style="width: 100px;" type="text"   #otherSub placeholder="Other Subjects">
+        </ion-input>
+        
+    </div>
+    <ion-buttons end>
+        <button royal (click)="AddOtherSub(otherSub)">
+            Add
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+
+
+    <div *ngIf="showSubBtn">
+      <button style="float:right;     border-radius: 1000%;" (click)="ShowSubject(subjects,otherSub)">
+     <ion-icon name="md-eye"  style=""></ion-icon>
+  </button>
+      <!--<button style="float:right;     border-radius: 1000%;" (click)="AddSubject(subjects,otherSub)">
+     <ion-icon name="md-add"  style=""></ion-icon>
+  </button>-->
+    </div>
+
+    <ion-item>
+      <ion-label>Select Teachers</ion-label>
+      <ion-select [(ngModel)]="teachers" multiple="true" cancelText="CANCEL" okText="OK" (change)="selectTeach($event)">
+        <ion-option value="Teacher1">Teacher1</ion-option>
+        <ion-option value="Teacher2">Teacher2</ion-option>
+        <ion-option value="Teacher3">Teacher3</ion-option>
+        <ion-option value="Teacher4">Teacher4</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+<button style="margin-top:25px"  block><ion-icon name="md-checkmark-circle-outline"> Submit </ion-icon></button>
+
+
+
+
+    <!--<ion-item>
+      <ion-label>Select Students</ion-label>
+      <ion-select [(ngModel)]="students" multiple="true" cancelText="CANCEL" okText="OK" (change)="selectStud($event)">
+        <ion-option value="Student1">Student1</ion-option>
+        <ion-option value="Student2">Student2</ion-option>
+        <ion-option value="Student3">Student3</ion-option>
+        <ion-option value="Student4">Student4</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="showStudBtn">
+      <button style="float:right;     border-radius: 1000%;" (click)="ShowStudent()">
+     <ion-icon name="md-grid"  style=""></ion-icon>
+  </button>
+      <button style="float:right;     border-radius: 1000%;" (click)="AddStudent(students)">
+     <ion-icon name="md-add"  style=""></ion-icon>
+  </button>
+    </div>-->
+
+  </ion-list>
+
+
+
+</ion-content>

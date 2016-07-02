@@ -1,0 +1,27 @@
+
+<ion-navbar *navbar>
+  <!--<button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+  <ion-title>List of Students </ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+<!--<ion-list>
+  <ion-item *ngFor="#item of Show">
+    {{item}}
+  </ion-item>
+</ion-list>-->
+
+
+
+<ion-list *ngFor="#item of Show">
+  
+  <ion-list-header>
+    List of Students
+  </ion-list-header>
+  <ion-item *ngFor="#item2 of item">{{item2}}</ion-item>
+</ion-list>
+</ion-content>

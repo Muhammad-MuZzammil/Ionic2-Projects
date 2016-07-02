@@ -1,0 +1,10 @@
+//interface of user
+export interface IUser {
+    _id: string;
+    name: string;
+    email: string;
+    password: string;
+    confirmPass : string;
+    isApproved:number;
+    status:number;
+}

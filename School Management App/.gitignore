@@ -1,0 +1,15 @@
+node_modules/
+
+www/
+
+build/
+
+platforms/
+
+plugins/
+
+typings/
+
+Features/
+
+.DS_Store
