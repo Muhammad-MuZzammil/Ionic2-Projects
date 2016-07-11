@@ -11,22 +11,22 @@
 
 
   <ion-list>
-    
-    
-<ion-toolbar position="bottom">
-    <div class="item-note" item-left>
-        <ion-input style="width: 200px;" type="text" #task placeholder="Add Tasks">
+
+ 
+     
+    <ion-toolbar position="bottom">
+      <div class="item-note" item-left>
+        <ion-input style="width: 200px;" type="text" placeholder="Add Tasks"  #task>
         </ion-input>
-    </div>
-    <ion-buttons end>
-        <button royal (click)="addTodo(task)">
+      </div>
+      <ion-buttons end>
+        <button royal (click)="AddTodo(task)">
             Add
             <ion-icon name="send"></ion-icon>
         </button>
-    </ion-buttons>
-</ion-toolbar>
-
-<!--<ion-toolbar >
+      </ion-buttons>
+    </ion-toolbar>
+    <!--<ion-toolbar >
     <ion-item>
       <ion-label floating>Add Tasks</ion-label>
     <ion-input type="text" #task></ion-input>
@@ -35,16 +35,21 @@
       <button  fab (click)="addTodo(task)"  > 
   <ion-icon name="send">SEND</ion-icon>
  </button>
-</ion-buttons>   
+</ion-buttons>   d
  </ion-item>
 </ion-toolbar>-->
 
-    <ion-list *ngFor=" let todo of todoArr">
+    <ion-list *ngFor=" let todo of todoArr  ">
       <ion-item>
         <ion-avatar item-left>
           <img src="img/1.jpg">
         </ion-avatar>
-        <h2>{{todo}}</h2>
+        <h2>{{todo}}
+          <div style="margin-left: 80%;">
+            <ion-icon name="create" (click)="EditTask()"></ion-icon>
+            <ion-icon name="trash" style="margin-left: 20%;" (click)="deleteTask()"></ion-icon>
+          </div>
+        </h2>
       </ion-item>
     </ion-list>
 
