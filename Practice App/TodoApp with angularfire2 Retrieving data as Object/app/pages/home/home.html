@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Todo App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<input type="text" #Newname>
+ <button (click)="setName(Newname.value)">Set Name</button>
+
+  <h1>{{(items | async)?.name }}</h1>
+
+<h4>{{(items|async)?.size}}</h4>
+  
+<input type="text" #Newsize>
+ <button (click)="updateSize(Newsize.value)">Update Size</button>
+<button (click)="delete()">Delete</button>
+  <!--<ul>
+  <li *ngFor="let item of items">
+  <h1>{{(items)}}</h1>
+    
+  </li>
+</ul>-->
+</ion-content>
