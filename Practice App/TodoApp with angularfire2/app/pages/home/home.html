@@ -8,11 +8,20 @@
 
 <ion-content padding>
 
-  <input type="text" #takeitem>
-  <button (click)="addItem(takeitem)">Add Item</button>
-    <ul>
-      <li *ngFor="let item of items | async">
-        {{item.$value}}
-      </li>
-    </ul>
+  <input type="text" #newitem />
+  <button (click)="addItem(newitem.value)">Add</button>
+  <button (click)=showData()>Show Data</button>
+
+  <button *ngIf="edit" (click)="editItem()">Edit Item</button>
+  <button (click)="deleteAll()">Delete All</button>
+  <ul>
+    <li *ngFor="let item of items | async">
+      {{item.text}}
+      <div *ngIf="show">
+        <input  type="text" #updateItem [value]="item.text" />
+        <button (click)="updateBtn(item.$key, updateItem.value)">Update Item</button>
+<button  small (click)="deleteItem(item.$key)"> Delete item</button>
+      </div>
+    </li>
+  </ul>
 </ion-content>
