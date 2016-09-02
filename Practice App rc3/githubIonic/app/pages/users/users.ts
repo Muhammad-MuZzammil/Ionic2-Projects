@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GithubUsers } from '../../providers/github-users/github-users';
+import { User } from '../../model/user';
+import {UserDetailsPage} from '../user-details/user-details';
 
 /*
   Generated class for the UsersPage page.
@@ -9,11 +12,24 @@ import { NavController } from 'ionic-angular';
 */
 @Component({
   templateUrl: 'build/pages/users/users.html',
+  providers: [GithubUsers]
 })
-export class UsersPage {
+export class UsersPage implements OnInit {
+  users: User[];
+  constructor(private nav: NavController, public githubUsers: GithubUsers) {
+  }
+  ngOnInit() {
+    this.githubUsers
+      .load()
+      .then(users => this.users = users)
+      .then(users => console.log(users))
+      .catch(err => console.log('404 Error', err))
+  }
 
-  constructor(private navCtrl: NavController) {
-
+  gotoDetails(event, login) {
+    this.nav.push(UserDetailsPage, {
+      login: login
+    });
   }
 
 }

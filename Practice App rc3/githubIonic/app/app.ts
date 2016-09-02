@@ -5,6 +5,7 @@ import {UsersPage} from './pages/users/users';
 import {ReposPage} from './pages/repos/repos';
 import {OrganizationsPage} from './pages/organizations/organizations';
 
+// import {UserDetailsPage} from './pages/user-details/user-details';
 
 
 @Component({
