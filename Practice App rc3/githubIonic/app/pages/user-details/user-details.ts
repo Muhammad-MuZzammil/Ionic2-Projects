@@ -1,21 +1,25 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the UserDetailsPage page.
+import { GithubUsers } from '../../providers/github-users/github-users';
+import { User } from '../../model/user';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
   templateUrl: 'build/pages/user-details/user-details.html',
+  providers:[GithubUsers]
 })
 export class UserDetailsPage {
-  login: string
-  constructor(private navCtrl: NavController, navParams: NavParams) {
-    this.login = navParams.get('login')
-  }
+  user:User = new User;
+  login: string;
 
+  constructor(private navCtrl: NavController, navParams: NavParams,githubUsers: GithubUsers) {
+    this.login = navParams.get('login')
+  githubUsers.loadDetails(this.login)
+  .then(user =>console.log('loadDetails',user))
+  .catch(err => console.log('404 Error',err))
+  
+  }
 
 
 }

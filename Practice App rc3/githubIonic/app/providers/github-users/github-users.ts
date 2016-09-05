@@ -14,19 +14,28 @@ export class GithubUsers {
 
   githubUsers: any = null;
   constructor(private http: Http) { }
-  
+
   load() {
     if (this.githubUsers) {
       return Promise.resolve(this.githubUsers);
     }
     return new Promise(resolve => {
       this.http.get('http://api.github.com/users')
-      .map(res=><Array<User>>(res.json()))
-      .subscribe(users=>{
-        this.githubUsers=users;
-        resolve(this.githubUsers);
-      })
+        .map(res => <Array<User>>(res.json()))
+        .subscribe(users => {
+          this.githubUsers = users;
+          resolve(this.githubUsers);
+        })
     })
+  }
+  loadDetails(login: string) {
+    return new Promise<User>(resolve => {
+      this.http.get(`http://api.github.com/users/${login}`)
+      .map(res =><User>(res.json()))
+      .subscribe(user =>{
+        resolve(user);
+      });
+    });
   }
 
 }
