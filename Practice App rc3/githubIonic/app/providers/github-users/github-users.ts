@@ -31,10 +31,20 @@ export class GithubUsers {
   loadDetails(login: string) {
     return new Promise<User>(resolve => {
       this.http.get(`http://api.github.com/users/${login}`)
-      .map(res =><User>(res.json()))
-      .subscribe(user =>{
-        resolve(user);
-      });
+        .map(res => <User>(res.json()))
+        .subscribe(user => {
+          resolve(user);
+        });
+    });
+  }
+
+  searchUsers(searchParam: string) {
+    return new Promise<Array<User>>(resolve => {
+      this.http.get(`https://api.github.com/search/users?q=${searchParam}`)
+        .map(res => <Array<User>>(res.json().items))
+        .subscribe(users => {
+          resolve(users);
+        })
     });
   }
 

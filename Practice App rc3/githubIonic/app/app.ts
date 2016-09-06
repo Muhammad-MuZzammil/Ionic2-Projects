@@ -4,12 +4,15 @@ import {StatusBar} from 'ionic-native';
 import {UsersPage} from './pages/users/users';
 import {ReposPage} from './pages/repos/repos';
 import {OrganizationsPage} from './pages/organizations/organizations';
+import { GithubUsers } from './providers/github-users/github-users';
 
 // import {UserDetailsPage} from './pages/user-details/user-details';
 
 
 @Component({
-  templateUrl: 'build/app.html'
+  templateUrl: 'build/app.html',
+    providers: [GithubUsers]     //singleton existence of providers.
+
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
